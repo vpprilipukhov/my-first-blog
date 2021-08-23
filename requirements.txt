@@ -1,1 +1,5 @@
-Django~=2.2.4
+Django~=3.2.6
+pymysql
+pytz
+sqlparse
+asgiref~=3.4.1

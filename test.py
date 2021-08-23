@@ -1,61 +1,12 @@
-import time
-import random
+n = 0
+a_min = 9505 # почему такое начальное значение?
 
-fps = 50
-time_delta = 1./fps
+for i in range(1107, 9504 + 1):
+    if i % 9 == 0 and i %  7 != 0 and i % 15 != 0 \
+                  and i % 17 != 0 and i % 19 != 0:
+        n += 1
+        a_min = min(a_min, i)
 
+print(n, a_min)
 
-class Cat():
-    def __init__(self, name, ves):
-        self.name = name
-        self.age = 1
-        self.ves = ves
-        self.hungry = 10
-        self.eat = 2
-
-    def myu(self):
-        print("Кошка", self.name, "кричит мяяяяяу!")
-
-    def grow(self):
-        self.age = self.age + 1
-        print("Поздравляем с днем рождения! Кошечке", self.name, "исполнилось", self.age, "лет")
-
-    def food(self,a):
-        self.hungry += a
-
-    def hunger(self):
-        self.hungry -= 0.05
-
-
-
-class Feeder():
-    def __init__(self,name,m):
-        self.name = name
-        self.m = m
-    def feeding(self,a):
-        self.m-=a
-
-
-catty = Cat("Симочка",4)
-feederr = Feeder("Чаппи",100)
-
-
-
-
-i = 0
-while True:
-    catty.hunger()
-
-    if catty.hungry <= 10:
-        a = random.randint(3,15)
-        catty.food(a)
-        feederr.feeding(a)
-        print("Кошка покушала, ее сытость =",catty.hungry)
-
-
-    if i >= 356:
-        catty.grow()
-        i = 0
-
-    i+=1
-    time.sleep(time_delta)
+print(min([3,4,3,-20]))
