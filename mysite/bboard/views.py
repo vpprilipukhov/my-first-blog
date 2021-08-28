@@ -17,8 +17,8 @@ def by_rubric(request, rubric_id):
     bds = Bd.objects.filter(rubric=rubric_id)
     rubrics = Rubric.objects.all()
     current_rubric = Rubric.objects.get(pk = rubric_id)
-    contex = {'bds': bds, 'rubrics': rubrics, 'current_rubric': current_rubric}
-    return render(request,'bboard/by_rubric.html',contex)
+    context = {'bds': bds, 'rubrics': rubrics, 'current_rubric': current_rubric}
+    return render(request,'bboard/by_rubric.html',context)
 
 # def index(request):
 #     s = "Список объявлений\r\n\r\n\r\n"
