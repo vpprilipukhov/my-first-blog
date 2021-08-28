@@ -1,14 +1,24 @@
-from django.http import  HttpResponse
+from django.http import HttpResponse
+from django.shortcuts import render #?
 from django.template import loader
 
-from .models import Bd
+from .models import Bd, Rubric
+
 
 def index(request):
-    tamplate = loader.get_template("bboard/index.html")
+    #tamplate = loader.get_template("bboard/index.html")
+    rubrics = Rubric.objects.all()
     bds = Bd.objects.all()
-    contex = {'bds': bds}
-    return HttpResponse(tamplate.render(contex,request))
+    contex = {'bds': bds,'rubrics': rubrics}
+    return render(request, 'bboard/index.html', contex)
 
+
+def by_rubric(request, rubric_id):
+    bds = Bd.objects.filter(rubric=rubric_id)
+    rubrics = Rubric.objects.all()
+    current_rubric = Rubric.objects.get(pk = rubric_id)
+    contex = {'bds': bds, 'rubrics': rubrics, 'current_rubric': current_rubric}
+    return render(request,'bboard/by_rubric.html',contex)
 
 # def index(request):
 #     s = "Список объявлений\r\n\r\n\r\n"

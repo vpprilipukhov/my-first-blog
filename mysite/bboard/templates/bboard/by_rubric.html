@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>Объявления</h1>
+    <h2>Рубрика: {{ currennt_rubric.name }}</h2>
     <div>
         <a href="/bboard/">Главная</a>
         {% for rubric in rubrics %}
@@ -16,7 +17,6 @@
     <div>
         <h2>{{ bd.title }}</h2>
         <p>{{ bd.content }}</p>
-        <p><a href="/bboard/{{ bb.rubric.pk }}/">{{ bb.rubric.name }}</a> </p>
         <p>{{ bd.published }}</p>
     </div>
     {% endfor %}
