@@ -1,3 +1,18 @@
-from django.shortcuts import render
+from django.http import  HttpResponse
+from django.template import loader
 
-# Create your views here.
+from .models import Bd
+
+def index(request):
+    tamplate = loader.get_template("bboard/index.html")
+    bds = Bd.objects.all()
+    contex = {'bds': bds}
+    return HttpResponse(tamplate.render(contex,request))
+
+
+# def index(request):
+#     s = "Список объявлений\r\n\r\n\r\n"
+#     for bb in Bd.objects.order_by('-published'):
+#         s += bb.tile + '\r\n' + bb.connect + '\r\n\r\n'
+#     return HttpResponse(s, content_type='text/plain; charset=utf-8')
+#
