@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{{ currennt_rubric.name }} Доска объявлений </title>
-</head>
-<body>
-    <h1>Объявления</h1>
-    <h2>Рубрика: {{ current_rubric.name }}</h2>
-    <div>
-        <a href="/bboard/">Главная</a>
-        {% for rubric in rubrics %}
-        <a href="/bboard/{{ rubric.pk }}/">{{ rubric.name }}</a>
-        {% endfor %}
-    </div>
-    {% for bd in bds %}
-    <div>
-        <h2>{{ bd.title }}</h2>
-        <p>{{ bd.content }}</p>
-        <p>{{ bd.published }}</p>
-    </div>
-    {% endfor %}
-</body>
-</html>
+{% extends "layout/basic.html" %}
+
+{% block title %}{{ current_rubric.name }}{% endblock %}
+{% block content %}
+<h2>Рубрика: {{ current_rubric.name }}</h2>
+{% for bd in bds %}
+<div>
+    <h2>{{ bd.title }}</h2>
+    <p>{{ bd.content }}</p>
+    <p>{{ bd.published }}</p>
+</div>
+{% endfor %}
+{% endblock %}

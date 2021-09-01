@@ -6,7 +6,7 @@ from django.conf.urls import  url
 
 urlpatterns = [
 
-    url(r'^', include('bboard.urls')),
+  #  url(r'^', include('bboard.urls')),
     path('admin/', admin.site.urls),
     path('bboard/',include('bboard.urls')),
 
