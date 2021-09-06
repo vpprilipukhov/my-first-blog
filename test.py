@@ -61,3 +61,6 @@ while True:
 
     print(arr[0].food, len(arr))
     time.sleep(skipticks )
+
+
+#привет Гриша, с началом школьных занятий
